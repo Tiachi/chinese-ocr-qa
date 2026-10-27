@@ -1,0 +1,348 @@
+{
+  "repository": "topdu/UniRec40M",
+  "revision": "b8fe2f83c49102edd51b7438616799e399b4ae1a",
+  "files": [
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_00",
+      "bytes": 5368709120,
+      "sha256": "1d9cbedd10fb4692440a04a5c800368df64ecde924372ba190d59f1d2ce995a8",
+      "git_blob_sha1": "b81d3eb3ce0c8782fb9d3c995f4053e79e49c572"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_01",
+      "bytes": 5368709120,
+      "sha256": "f6b990437c7720ff9bf6412e9e97ab5e6a4bdda324edaacb62be7cb4c276c326",
+      "git_blob_sha1": "bcea6a2652b367f2c394d5924db8f5fc62290b62"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_02",
+      "bytes": 5368709120,
+      "sha256": "6d11820e8eff4f28cb477cb1b4a0d736902aa5614dd3aea1b8d2f1398b241f08",
+      "git_blob_sha1": "fa48ac8ce06f6acc0ca2f055cb218b02b1e03850"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_03",
+      "bytes": 5368709120,
+      "sha256": "98362d213660470d7e95a12a85126e3406286ba78cd3347852b15ea0110850f1",
+      "git_blob_sha1": "1a7bdf196359f50d5b5c348a02c9684961e0c7a2"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_04",
+      "bytes": 5368709120,
+      "sha256": "8f5c3598ed2aedff7531b38e6460d90fcd915fd90adb729f81e0e74c5e116f65",
+      "git_blob_sha1": "8464d010c4cf65cba1d2dd583b7d8dc641d9804b"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_05",
+      "bytes": 5368709120,
+      "sha256": "5f545c18bf501023b8f68ec8083d0d99eaee368c2a350723046170a9a4f715f7",
+      "git_blob_sha1": "15703eed057bd2e112a2e6f85bc2b7a7290dd773"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_06",
+      "bytes": 5368709120,
+      "sha256": "aca005f9560d90179155fae9d796ab4f0ce432246d44a5e67855f882f2ad1c45",
+      "git_blob_sha1": "598308b21f7f57c9cebee50a435e07366a084ff5"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_07",
+      "bytes": 5368709120,
+      "sha256": "4913a52eda8ae995c0131077f5d077df730532af457a2a0ae68e206f66032762",
+      "git_blob_sha1": "056398a7eb824200749782bb3df1ed4db8f1cc6e"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_08",
+      "bytes": 5368709120,
+      "sha256": "cf031243c522568bce4450399339f2203fca661bd885d84f3f7aaf75987d7f93",
+      "git_blob_sha1": "f5e81443875944069f9622b7e607baac5c545e53"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_09",
+      "bytes": 5368709120,
+      "sha256": "24045a85f80ccc122d72cf6ca5f81121943652d541d1c148f33e1676856706ba",
+      "git_blob_sha1": "03712086bb3485517c3c3d7c5870f266201345da"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_10",
+      "bytes": 5368709120,
+      "sha256": "8201481df3bda95f856c95f5c3fc521333e8cd5dada763d0b04929a6cc4e7368",
+      "git_blob_sha1": "3843f0af658dba742637deb272e30cdac756a41d"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_11",
+      "bytes": 5368709120,
+      "sha256": "e0d6b8037993d9cff34e0962982c624937a2c38b15e7a4d9f2370df29f477a4b",
+      "git_blob_sha1": "2fae866b511fd5ed30410e8ae0722a6dea4533c4"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_12",
+      "bytes": 5368709120,
+      "sha256": "ab116a7a95d77e669d5c744dbc03506936efbeb55665944005267b719e462d06",
+      "git_blob_sha1": "a413582307d6c3f94148d3c6ebf1c725cd8e1df5"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_13",
+      "bytes": 5368709120,
+      "sha256": "0db026ba6ae15a70838888362f4988091c585d3dae60373b387b68a29f113854",
+      "git_blob_sha1": "da11bd468a86156408d07df9275438950ea3e723"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_14",
+      "bytes": 5368709120,
+      "sha256": "244e8b0178d87f27d58477a3e4704bc20e7346418b185df32a6dae80f94a05f3",
+      "git_blob_sha1": "a36009d490172619ab63f9bf72fb0ed0887daf7a"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_15",
+      "bytes": 5368709120,
+      "sha256": "5577f9dfd89160f44c42ddf6866d8f856f9c8dd3911faab8f05cad66370c952a",
+      "git_blob_sha1": "a0944c61cbdd85c4859a2a448ac6163412e5d631"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_16",
+      "bytes": 5368709120,
+      "sha256": "b4f958ab2f1b3176166a0ca1cd18094f3a66b4cd913964b53cdf511f9303b75f",
+      "git_blob_sha1": "7c4d090148451fc3d8dbbd1de6187f2410daceda"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_17",
+      "bytes": 5368709120,
+      "sha256": "535383dd8ea7d222f5eb0e55327a6348fcf8004bc1e96d3f834be6ed28f4a7db",
+      "git_blob_sha1": "3fb11509a5cb732cb5d69b5450914595f75eb3fc"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_18",
+      "bytes": 5368709120,
+      "sha256": "473d5b9f07ed7c7dc9d7213e19b3e4d769b672d86767286e6d8178f6975595b9",
+      "git_blob_sha1": "27f8966d1556fc39044fa6ced41b1a7e4fad70b0"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_19",
+      "bytes": 5368709120,
+      "sha256": "7993fd8053c661fd65237550e55e6d8e8e5c26e6ffb8496f8868121bec39eb4e",
+      "git_blob_sha1": "91a43fb48450ba7e4588dfc302762ab99feafef3"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_20",
+      "bytes": 5368709120,
+      "sha256": "1f0384692e31bfccee524e3d55ffe733d9c2eda0401b2a8b9af507a43d1c66aa",
+      "git_blob_sha1": "bd5334d71c81d89723a94dfa5a30521516917ff4"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_21",
+      "bytes": 5368709120,
+      "sha256": "3f151ad6ce27500df627512269a7487664cca6cce9eea831b7e1146272851e46",
+      "git_blob_sha1": "9626215da3d856b3745ccbeb43fbe1a32217f8b5"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_22",
+      "bytes": 5368709120,
+      "sha256": "957834922d492df71b957f059adb7acb16fa8ed8cd9697509d45b44af15a9d04",
+      "git_blob_sha1": "ef6abe715bcb9ba12d34b131ea07e8e84d0ae3d0"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_23",
+      "bytes": 5368709120,
+      "sha256": "4cb67040c3b7ae33f9e52114c80c6a9d56be59e5a03a8fb0eb0627df4045a00d",
+      "git_blob_sha1": "c3189572b829655402ffcb4e3a9d48bc5c750f84"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_24",
+      "bytes": 5368709120,
+      "sha256": "018cba30e2711291daacd2b72ea5b85f29e73d186dbef03371f02c0f194b5afd",
+      "git_blob_sha1": "cb8f82bff8b92ba93cc754a4dfa77794f8e0f056"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_25",
+      "bytes": 5368709120,
+      "sha256": "f94e809212cbf58cb91f44d7d412f6845313fbdeade211520f1c01f15e8c5186",
+      "git_blob_sha1": "c4542b4566aff42bbee9a05c9ba2344de3f5dcfa"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_26",
+      "bytes": 5368709120,
+      "sha256": "aef66f1938f0ae47899b76c6284eac252aa74ece0b26f0da633efdeda2d08429",
+      "git_blob_sha1": "ba74b4992f233e2aa0d35ef02094a4724e24e4b1"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_27",
+      "bytes": 5368709120,
+      "sha256": "f9f50242f1a6b1dd9ffebba6fe95b3fff45d87b0377007ba75f3bfd06ee72f90",
+      "git_blob_sha1": "8c5e15a4ff12055fe3d3accf2de1ffa4b2101304"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_28",
+      "bytes": 5368709120,
+      "sha256": "a55760cb76e2025f1238842760aa862d5d82a229c15ad21935a5419ce47657a7",
+      "git_blob_sha1": "a1fee7ae8cdac84c3e1393810692ee8ebb0c286d"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_29",
+      "bytes": 5368709120,
+      "sha256": "21ccac7dab54584f55ac353bd6d3e5d337d7ab2659bd0b5d7582295b7aa32873",
+      "git_blob_sha1": "2a6bfc3ebb31ad27b775f7e827a963f765044d86"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_30",
+      "bytes": 5368709120,
+      "sha256": "d421b1723ecb04fdcdd8b7c170cf1f12cd89408b723147bbf41c0dfd11199f39",
+      "git_blob_sha1": "3fd5d66f7a67727e805eedfb640a52dcaac58185"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_31",
+      "bytes": 5368709120,
+      "sha256": "aa28ec12ec0693dc1a2a3248775559c55120802981d899448f01b03e867b190a",
+      "git_blob_sha1": "4d27fd69cb55fcd339dd99e37ade6af2a0d84478"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_32",
+      "bytes": 5368709120,
+      "sha256": "b8dd33c0c72827ebd4ee5c9d8c6830cad561a0bd29e0a65c8d087fbe515942dd",
+      "git_blob_sha1": "d23ffd6848c2629f74b318a26b374c28d810bcc3"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_33",
+      "bytes": 5368709120,
+      "sha256": "059fd867a46e8f2c36b4cf90b7f66ed7078a585aa8c3d6547f6dee6da3dd130e",
+      "git_blob_sha1": "7c0fd5369f84799658db8d4f7cf8aa5ec5a24256"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_34",
+      "bytes": 5368709120,
+      "sha256": "715da26cb7c8fdead62ca77325291580c5cb5ee4c66462f1c53804127c33838f",
+      "git_blob_sha1": "648236fd7d0fd3a9cdb2c38cf17ca16589f49beb"
+    },
+    {
+      "path": "HWDB2Train/image_lmdb/data.mdb.part_35",
+      "bytes": 4317409280,
+      "sha256": "862a7452b342684ae8d9347dca92af3bd098a08b3125bb348e27870155a22b63",
+      "git_blob_sha1": "c608d38244fb3529176999bd32a1dcbdd2b52ee6"
+    },
+    {
+      "path": "HWDB2Train/label_key.json",
+      "bytes": 72204534,
+      "sha256": "8f1d8ec17b983c50fefbf91401c45da0d636ca259fa4ef6e9f04cc09ceb18a0e",
+      "git_blob_sha1": "8a21f02c88168d2c267a95d536a104092e9c9cca"
+    },
+    {
+      "path": "HWDB2Train/label_key_region.json",
+      "bytes": 40069774,
+      "sha256": "14996b0785c7abb02cd921a1f6da023bf1cbdd50a13a18c1a974c2133f8a862f",
+      "git_blob_sha1": "ad1c8ecf7d9af751446f507284cb7326a7b061e6"
+    },
+    {
+      "path": "K-12/image_lmdb_qwen/data.mdb",
+      "bytes": 7913259008,
+      "sha256": "f37c8608664c6c44599fec534bd1f05521d995735a4fb93d8543a3c143b9deaa",
+      "git_blob_sha1": "a1cce1faa78a5d59a8ea7a55a2c1ec0f234989d5"
+    },
+    {
+      "path": "K-12/label_key_qwen.json",
+      "bytes": 36597129,
+      "sha256": "7504ab68acb8708fdeb59674f90b6a3ae9cb5550785564ff4f4212e9e3a15f01",
+      "git_blob_sha1": "f2a1c58c1881edc29e1d0d7b8690ea281c49218a"
+    },
+    {
+      "path": "K-12_exam/image_lmdb_qwen/data.mdb",
+      "bytes": 7919493120,
+      "sha256": "829406777d131b2d811ac70a723291a9ba414993c34fe6ffd423af054ea1d8c8",
+      "git_blob_sha1": "b7dda6da8a1279af0ac34c4ad10c14fc2cda7bcc"
+    },
+    {
+      "path": "K-12_exam/label_key_qwen.json",
+      "bytes": 20797884,
+      "sha256": "834f8cd81e62def189320d7b48aa8b29654cb6243bd2fe36132373a9f2dea534",
+      "git_blob_sha1": "9dacf46579d60206f42bc745411181cbdebf180b"
+    },
+    {
+      "path": "K-12_exam/name_key_qwen.json",
+      "bytes": 3940704,
+      "sha256": null,
+      "git_blob_sha1": "81b28370da04149d8637ae142c20a7bdbde8f4cc"
+    },
+    {
+      "path": "LSVT-2019/image_lmdb/data.mdb",
+      "bytes": 6086291456,
+      "sha256": "3793eb771439453a8552967acb7c837781e780a451f950fd3286b5238c96e5a9",
+      "git_blob_sha1": "fa9a8af3fce89069c35ba57266d70d6205a5b9ca"
+    },
+    {
+      "path": "LSVT-2019/label_key.json",
+      "bytes": 28217388,
+      "sha256": "7d3405a56a726c235f9039433386ac930a6e1fd1d58a2820fb1a8de21028cb09",
+      "git_blob_sha1": "0f9a98ff2362dfcbc9b741fb5a6f5c04a9af119d"
+    },
+    {
+      "path": "TAL_OCR_HW/image_lmdb/data.mdb",
+      "bytes": 1353842688,
+      "sha256": "6e652370c99525adb0c6678d5352658885c47791df1993d467e89953c5c70311",
+      "git_blob_sha1": "d54b2e9b3d5e3e19c1f49cd1b0691399a70c7023"
+    },
+    {
+      "path": "TAL_OCR_HW/label_key.json",
+      "bytes": 2797536,
+      "sha256": null,
+      "git_blob_sha1": "a06a7d7229e3e1350c6895473263ec1e933b409d"
+    },
+    {
+      "path": "hw_pdf/image_lmdb_qwen_crop_tex_norm/data.mdb",
+      "bytes": 6142070784,
+      "sha256": "d8bc40e74632d2d8cd43e2cdaf876c4c401fe81ea68e487a17e7e3a7760fc422",
+      "git_blob_sha1": "9ffdbacef60433b00bc7fdf63895d52b049ca881"
+    },
+    {
+      "path": "hw_pdf/image_lmdb_qwen_tex_norm/data.mdb",
+      "bytes": 4459515904,
+      "sha256": "fac296b7a7d7c91de271765687e75b51ec2b8aacc42e17d619ef1f5788a32193",
+      "git_blob_sha1": "19f956d030d4641bc6fd2ea6d3be0e66a69ec530"
+    },
+    {
+      "path": "hw_pdf/label_key_qwen_crop_tex_norm.json",
+      "bytes": 16152649,
+      "sha256": "c4b896684e1e4d51266b2cf9d4487f83d8a32a8915932cc70665372d2f40400a",
+      "git_blob_sha1": "59b9085047388171fa8295ba6a743668474e2748"
+    },
+    {
+      "path": "hw_pdf/label_key_qwen_tex_norm.json",
+      "bytes": 8387995,
+      "sha256": null,
+      "git_blob_sha1": "741e07f7aecab5ee6a21d800f5be5df1919c0e5c"
+    },
+    {
+      "path": "hw_xhs/image_lmdb_qwen_tex_norm/data.mdb",
+      "bytes": 4574908416,
+      "sha256": "d34b8be3d12e315e19d0c2e91d5ac1d2f926a42b1a74701c5a67489aa64205f4",
+      "git_blob_sha1": "b1fefc190608dd350adf356ced1dc17d3fddaf08"
+    },
+    {
+      "path": "hw_xhs/label_key_qwen_tex_norm.json",
+      "bytes": 15011552,
+      "sha256": "58cbfc83fe4eacd67816d25360cce4627d4152931a6269bf33bc5fd0d30d0fdb",
+      "git_blob_sha1": "432f7cc8699d452a0bf87a4c41d588462e6a7df8"
+    },
+    {
+      "path": "nongminribao_pdf_dpi300/image_lmdb/data.mdb",
+      "bytes": 19961012224,
+      "sha256": "aa352759d761cac84e269d705a4cb7966057a8c5ba42e77bcecbb5be1683d851",
+      "git_blob_sha1": "7a3356af5072f24cf20569f117c53e581d0f5997"
+    },
+    {
+      "path": "nongminribao_pdf_dpi300/label_keys.json",
+      "bytes": 54174148,
+      "sha256": "543a3ac2bf516907466284d4d725929df57d4490ed9858b899b1ced40d990208",
+      "git_blob_sha1": "0eae390ece54076a07eeaf5e7e635657eb702fbf"
+    },
+    {
+      "path": "webdata_MTWI/image_lmdb/data.mdb",
+      "bytes": 2740473856,
+      "sha256": "e23385a78ca7791805a6d5ecd92af867d62ad2e9a78e541dd6c2738b2dcaa942",
+      "git_blob_sha1": "7eeca848c6866b9eb8c8f2c50385da1cfcb157e4"
+    },
+    {
+      "path": "webdata_MTWI/label_key.json",
+      "bytes": 15207092,
+      "sha256": "4bb3e661018aae9eb5c00e3225a3725b2e7c3aeea37bc9d8c53bd8a7db1848c2",
+      "git_blob_sha1": "a5e518642cf7eb5d0797578a6ae13871f156a33e"
+    }
+  ]
+}

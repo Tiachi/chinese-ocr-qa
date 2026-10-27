@@ -1,0 +1,4 @@
+Pillow==11.3.0
+ijson==3.4.0.post0
+lmdb==1.7.5
+datatrove==0.10.1

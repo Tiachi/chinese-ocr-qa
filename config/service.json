@@ -1,0 +1,15 @@
+{
+  "python": "/usr/local/python3.12.13/bin/python3",
+  "vllm_path": "/vllm-workspace/vllm",
+  "model_path": "/mnt/sfs/ltj/modelscope/Qwen3.8-27B",
+  "served_model_name": "qwen3.8-27b",
+  "host": "127.0.0.1",
+  "port": 8018,
+  "tp": 2,
+  "dp": 8,
+  "max_model_len": 8192,
+  "max_num_seqs": 32,
+  "max_num_batched_tokens": 8192,
+  "memory_utilization": 0.90,
+  "vision": true
+}

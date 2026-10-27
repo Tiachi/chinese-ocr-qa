@@ -1,0 +1,52 @@
+{
+  "name": "UniRec_Chinese_OCR_QA",
+  "seed": 20261026,
+  "raw_root": "/mnt/sfs/unimoe_dataset/omni/UniRec40M",
+  "work_root": "/mnt/sfs/ltj/ocr_qa/unirec9-v1",
+  "training_root": "/mnt/sfs/unimoe_dataset/training",
+  "delivery_json": "/mnt/sfs/unimoe_dataset/omni/json/UniRec_Chinese_OCR_QA.jsonl",
+  "delivery_readme": "/mnt/sfs/unimoe_dataset/omni/readmes/UniRec_Chinese_OCR_QA.md",
+  "download": {
+    "base_url": "https://huggingface.co",
+    "benchmark_urls": ["https://huggingface.co", "https://hf-mirror.com"],
+    "files_concurrency": 4,
+    "segments_per_file": 8,
+    "segment_bytes": 67108864,
+    "timeout_seconds": 45,
+    "retries": 4
+  },
+  "mechanical": {
+    "min_side": 8,
+    "max_pixels": 80000000,
+    "blur_review_below": null,
+    "label_max_chars": 8000,
+    "require_han": true,
+    "marker_map": {"<<<change_line_token_wrap>>>": "\n", "<<<change_line_token_split>>>": "\n", "<|sn|>": "\n"},
+    "holdout_sha256_file": null
+  },
+  "judge": {
+    "base_url": "http://127.0.0.1:8018/v1",
+    "model": "qwen3.8-27b",
+    "api_key_env": "OCR_QA_API_KEY",
+    "concurrency": 64,
+    "timeout_seconds": 90,
+    "max_tokens": 32,
+    "max_input_chars": 32000,
+    "mode": "vision",
+    "min_quality": 8
+  },
+  "mix": {"oe_percent": 70, "mcq_percent": 30, "target_qa": null, "per_subset_min": 1},
+  "sources": [
+    {"subset": "HWDB2Train", "label": "HWDB2Train/label_key.json", "lmdb": "HWDB2Train/image_lmdb", "prefix": "hwdb_", "kind": "handwriting_line"},
+    {"subset": "HWDB2Train", "label": "HWDB2Train/label_key_region.json", "lmdb": "HWDB2Train/image_lmdb", "prefix": "hwdb_", "kind": "handwriting_region"},
+    {"subset": "K-12", "label": "K-12/label_key_qwen.json", "lmdb": "K-12/image_lmdb_qwen", "prefix": "k12_", "kind": "printed_line"},
+    {"subset": "LSVT-2019", "label": "LSVT-2019/label_key.json", "lmdb": "LSVT-2019/image_lmdb", "prefix": "lsvt_", "kind": "scene_text"},
+    {"subset": "webdata_MTWI", "label": "webdata_MTWI/label_key.json", "lmdb": "webdata_MTWI/image_lmdb", "prefix": "mtwi_", "kind": "scene_text"},
+    {"subset": "K-12_exam", "label": "K-12_exam/label_key_qwen.json", "lmdb": "K-12_exam/image_lmdb_qwen", "prefix": "exam_", "kind": "exam_transcription"},
+    {"subset": "nongminribao_pdf_dpi300", "label": "nongminribao_pdf_dpi300/label_keys.json", "lmdb": "nongminribao_pdf_dpi300/image_lmdb", "prefix": "nongminribao_pdf_", "kind": "newspaper"},
+    {"subset": "hw_pdf", "label": "hw_pdf/label_key_qwen_tex_norm.json", "lmdb": "hw_pdf/image_lmdb_qwen_tex_norm", "prefix": "page_hwpdf", "kind": "handwriting_page"},
+    {"subset": "hw_pdf", "label": "hw_pdf/label_key_qwen_crop_tex_norm.json", "lmdb": "hw_pdf/image_lmdb_qwen_crop_tex_norm", "prefix": "crop_hwpdf", "kind": "handwriting_region"},
+    {"subset": "hw_xhs", "label": "hw_xhs/label_key_qwen_tex_norm.json", "lmdb": "hw_xhs/image_lmdb_qwen_tex_norm", "prefix": "xhs_hw_", "kind": "handwriting_note"},
+    {"subset": "TAL_OCR_HW", "label": "TAL_OCR_HW/label_key.json", "lmdb": "TAL_OCR_HW/image_lmdb", "prefix": "tal_", "kind": "handwriting_line"}
+  ]
+}

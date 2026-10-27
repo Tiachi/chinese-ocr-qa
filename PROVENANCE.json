@@ -1,0 +1,113 @@
+{
+  "project": "Tiachi/chinese-ocr-qa",
+  "export_date": "2026-10-27",
+  "source_repository": "Tiachi/Dataset",
+  "source_subdirectory": "projects/chinese-ocr-qa",
+  "source_commit": "e15bdf278df2bf89a33b8e2e049811389362a6d7",
+  "private_history_copied": false,
+  "raw_data_copied": false,
+  "source_files": [
+    {
+      "path": "README.md",
+      "source_sha256": "d48121063eb3e9326adf9593503b889e88868c38454c4c91e7211419a5b06934"
+    },
+    {
+      "path": "config/pipeline.json",
+      "source_sha256": "143894aefa695c6d811b369a1f5ab0f0f3b2d404cec5b5912c40820788175adc"
+    },
+    {
+      "path": "config/service.json",
+      "source_sha256": "6a248e5399357d9e3ad5d2f9ea95189439f9a135cee95e0d93885b40474ecb2e"
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "source_sha256": "f0b0915da96f5a3b95c7a7b8f487610c8cf941ee609d0bbbf02faa2fffc898ab"
+    },
+    {
+      "path": "docs/deploy_failure_fix_2026-10-26.md",
+      "source_sha256": "909e108bded13a474e318d68885a7ffc0e7bb7cf53012b9541c4a94a9e6edb0b"
+    },
+    {
+      "path": "docs/download_network_2026-10-27.md",
+      "source_sha256": "e42eda1a0ebd61b823369c87b9d5d572a2a524d429e4e9b96b023fb19c8859a8"
+    },
+    {
+      "path": "docs/proxy_inspection_2026-10-27.md",
+      "source_sha256": "7a127967950bbe299a41d86384b69ccd96e3501cf055e459ed4fc52f470261e6"
+    },
+    {
+      "path": "docs/research_and_design_2026-10-26.md",
+      "source_sha256": "a8996f04bd2c51bc9be9141eb6fc6ba65920ed8fc60c9b75f25d41451827163a"
+    },
+    {
+      "path": "docs/runbook_2026-10-26.md",
+      "source_sha256": "3f089be1f35061a90bb3eac03bcef4a72bfedaf597396b38cfa911be7d2d0adc"
+    },
+    {
+      "path": "requirements.txt",
+      "source_sha256": "f653c75c7a43035fd3af040f1ccbb19700c59397c5b9d6bae6e5f470dbe5a6ca"
+    },
+    {
+      "path": "research/source_evidence_20261026.json",
+      "source_sha256": "ca8484e2d59b8342d92facac5c9daf48a8ae2aa8b1b2be687e2b7f1f4ccee6ef"
+    },
+    {
+      "path": "research/source_files.json",
+      "source_sha256": "955ab806b9db24daaa696250586591a828fcdaedfab83465eda10b27cc4d7c6d"
+    },
+    {
+      "path": "scripts/common.py",
+      "source_sha256": "3ab5d9b77da5c1ffc49b80e4bde10a37e288546be9b407ee43c1d66e56759fa6"
+    },
+    {
+      "path": "scripts/delivery.py",
+      "source_sha256": "d687dff7f0c97b55bc1e3a06445673af6ae6ad07639d7d64b6ab3593bc04356f"
+    },
+    {
+      "path": "scripts/download.py",
+      "source_sha256": "2bd4a01f0fc8c5f05e1af5af72a3e7f39c9f38f61ffd9d560c5c99a401cb34de"
+    },
+    {
+      "path": "scripts/mechanical.py",
+      "source_sha256": "6723bf1d216b93ce977b43c470cf436f96a6600289fa42323f1096f59fbec122"
+    },
+    {
+      "path": "scripts/network_diagnose.py",
+      "source_sha256": "d6a0d9e57a68c2f1453a752ffb8c5b66e6073ec3d2fea41365c2e957de7e5597"
+    },
+    {
+      "path": "scripts/pipeline.py",
+      "source_sha256": "3980609f6e014037a140540dc5b733ea3c577fea41e1aedfdb9a30a166ee1e2e"
+    },
+    {
+      "path": "scripts/proxy_inspect.py",
+      "source_sha256": "8ce6cdba1b5854473b9608a44cd8cc99853855ee96acc00084f0a012a936745e"
+    },
+    {
+      "path": "scripts/qa.py",
+      "source_sha256": "fefcc824be812e9b3e8e0d2fe7e3b3bd155db621ca827c88a24dec20e4d4b01c"
+    },
+    {
+      "path": "scripts/run.sh",
+      "source_sha256": "d51182b33c8a338a1136da659257284642a9d21c9c6dfe78390894cd3ae9e6d8"
+    },
+    {
+      "path": "scripts/service.py",
+      "source_sha256": "bd940d31f1fa71a01a37e37ed41f917dfce894e0d487b2e4bc945b3e8ac575de"
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "source_sha256": "d8092097772b7d8593d48564f0652b0e07fe774b8e945e8a37f1f56b451fc48d"
+    },
+    {
+      "path": "tests/test_proxy_inspect.py",
+      "source_sha256": "4e92c88d903e06f3fce1199d4792d6ab9254d6666cb40a0c4d9d57007dc922d7"
+    }
+  ],
+  "adaptations": [
+    "standalone repository root for code SHA",
+    "public root-level commands and sync",
+    "portable data-format snapshot",
+    "expanded Agent handoff; preserve original data/work paths"
+  ]
+}

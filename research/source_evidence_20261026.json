@@ -1,0 +1,25 @@
+{
+  "checked_date": "2026-10-26",
+  "modelscope_repository": "topdktu/UniRec40M",
+  "modelscope_revision": "bbd38375e2e4b3c3b06480350ed0327d0b44664a",
+  "modelscope_files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 3818,
+      "sha256": "53b61e55812199dea8ffe90c52485e2ec5e5bdae1eed92cab20063003da14e29"
+    },
+    {
+      "path": "README.md",
+      "bytes": 406,
+      "sha256": "adfb9524d65461f7a45006310fbb525034303859b020f8c9a6b7746239b8161f"
+    }
+  ],
+  "modelscope_usable": false,
+  "hf_revision": "b8fe2f83c49102edd51b7438616799e399b4ae1a",
+  "selected_files": 57,
+  "selected_bytes": 253686654321,
+  "datatrove_fork": "Tiachi/datatrove",
+  "datatrove_fork_branch": "codex/sft-cleaning-v1",
+  "datatrove_fork_commit": "85427cfd604300cae2f61bca181361148d41581f",
+  "server_ssh": "connection_refused_no_server_download_or_run"
+}
