@@ -6,6 +6,8 @@
 
 本仓库从原项目提取为独立代码快照，不含私有仓库历史、训练数据、媒体、凭据或完整日志。来源记录见`PROVENANCE.json`，图像训练格式见[DATA_FORMAT.md](docs/DATA_FORMAT.md)。
 
+独立仓库**36项本地测试通过**，验证范围见[独立验证记录](docs/STANDALONE_VALIDATION_2026-10-27.md)。
+
 ## 独立使用
 
 Python3.10+，Linux为目标部署环境。首次克隆前确认网络不经未经授权的个人代理；存在代理配置不代表已获准使用。服务器独立代码目录建议为`/mnt/sfs/ltj/project/chinese-ocr-qa`，尚未实际部署此独立checkout。
