@@ -78,7 +78,7 @@ def deliver(c,quality):
     all_subsets={s['subset'] for s in c['sources']}
     missing=[s for s in sorted(all_subsets) if sum(v for (ss,m),v in quotas.items() if ss==s)<c['mix']['per_subset_min']]
     if missing:raise ValueError('required subset capacity missing: '+str(missing))
-    counts=Counter();subsets=Counter();labels=Counter();fields={};seen_images=set();mcq_index=0
+    counts=Counter();subsets=Counter();labels=Counter();fields={};seen_images=set();mcq_index=0;templates=Counter()
     with (stage.path/(c['name']+'.jsonl')).open('xb') as out,(stage.path/'attributes.jsonl').open('xb') as attrs:
         for (subset,mode),number in sorted(quotas.items()):
             for raw, in db.execute('SELECT raw FROM pool WHERE subset=? AND mode=? ORDER BY sortkey LIMIT ?',(subset,mode,number)):
@@ -87,13 +87,13 @@ def deliver(c,quality):
                 for key,value in row['original'].items():fields.setdefault(key,set()).add(type(value).__name__)
                 path=under(c['training_root'],row['image'])
                 if not path.is_file():raise ValueError('delivery media missing')
-                out.write(encode(final));attrs.write(encode({'id':final['id'],'qa_type':mode,'ocr_kind':row['kind'],'quality':row['judge']['quality'],'judge_scope':c['judge']['mode'],'image_sha256':row['image_sha256'],'pixel_sha256':row['media']['pixel_sha256']}))
-                counts[mode]+=1;subsets[subset]+=1;seen_images.add(row['image_sha256'])
+                out.write(encode(final));attrs.write(encode({'id':final['id'],'qa_type':mode,'ocr_kind':row['kind'],'question_template':row.get('question_template'),'question_template_group':row.get('question_template_group'),'quality':row['judge']['quality'],'judge_scope':c['judge']['mode'],'image_sha256':row['image_sha256'],'pixel_sha256':row['media']['pixel_sha256']}))
+                counts[mode]+=1;subsets[subset]+=1;templates[row.get('question_template','?')]+=1;seen_images.add(row['image_sha256'])
     db.close()
     if counts!=Counter(oe=target*7//10,mcq=target*3//10) or set(labels)!=set('ABCD') or len(set(labels.values()))!=1:raise ValueError('post-export ratio validation failed')
     if len(seen_images)!=target:raise ValueError('duplicate image in final selection')
     stats={'qa_pairs':target,'rows':target,'unique_images':len(seen_images),'formats':dict(counts),'subsets':dict(subsets),
-           'mcq_letters':dict(labels),'judge_scope':c['judge']['mode'],'strict_data_format_verified':False,
+           'mcq_letters':dict(labels),'question_templates':dict(templates),'judge_scope':c['judge']['mode'],'strict_data_format_verified':False,
            'status':'MODEL_VISION_REVIEWED_NOT_GOLD' if c['judge']['mode']=='vision' else 'TEXT_PROXY_ONLY_NOT_VISUAL_VERIFIED',
            'selection_capacity':{'oe':total_oe,'mcq':total_mcq},'accuracy_certified':False}
     write_new(stage.path/'summary.json',encode(stats));write_new(stage.path/'README.md',readme(c,stats,fields).encode('utf8'))

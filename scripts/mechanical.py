@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 import sqlite3
+import subprocess
 
 from common import Stage, code_sha, digest, encode, identity, safe_rel, under, write_new
 
@@ -26,6 +27,46 @@ def bucket_rows(path):
                 elif event in ('end_map','end_array'):depth-=1
                 if depth==0:
                     yield bucket,builder.value;builder=None
+
+
+TOKEN_RE=re.compile(r'[一-鿿]|[A-Za-z0-9_]+|[^\s]')
+
+
+def datatrove_repetition(text,rules):
+    """Datatrove SFT mechanical rule: 8-gram repetition at >=128 tokens and >=0.6."""
+    if not isinstance(text,str):return {'tokens':0,'ratio':0.0,'flagged':False}
+    tokens=TOKEN_RE.findall(text[:200000])
+    n=int(rules.get('text_ngram_n',8));minimum=int(rules.get('text_min_tokens',128))
+    threshold=float(rules.get('text_repetition_threshold',0.6))
+    if len(tokens)<max(n,minimum):return {'tokens':len(tokens),'ratio':0.0,'flagged':False}
+    grams=[tuple(tokens[i:i+n]) for i in range(len(tokens)-n+1)]
+    ratio=1-len(set(grams))/len(grams)
+    return {'tokens':len(tokens),'ratio':round(ratio,6),'flagged':ratio>=threshold}
+
+
+def ffmpeg_blur(path,width,height,rules):
+    """image-video-cleaner FFmpeg blurdetect; adaptive block for tiny OCR crops."""
+    threshold=rules.get('ffmpeg_blur_review_above')
+    if threshold is None:return None
+    binary=rules.get('ffmpeg_bin','/mnt/sfs/ltj/runtime/ffmpeg-blur/linuxarm64/bin/ffmpeg')
+    timeout=int(rules.get('ffmpeg_blur_timeout',20))
+    side=min(int(width),int(height))
+    block=32 if side>=64 else (16 if side>=32 else (8 if side>=16 else 4))
+    vf=(f'blurdetect=low=0.078431372549:high=0.196078431373:radius=50:'
+        f'block_width={block}:block_height={block}:block_pct=100:planes=1,'
+        'metadata=mode=print:key=lavfi.blur:file=-')
+    command=[binary,'-hide_banner','-loglevel','error','-nostdin','-threads','1','-filter_threads','1',
+             '-protocol_whitelist','file','-i',str(path),'-map','0:v:0','-an','-sn','-dn',
+             '-frames:v','1','-vf',vf,'-f','null','-']
+    try:
+        result=subprocess.run(command,capture_output=True,text=True,timeout=timeout)
+        match=re.search(r'^lavfi\.blur=([^\r\n]+)',result.stdout,re.M)
+        score=float(match.group(1)) if match else None
+        return {'score':score,'threshold':float(threshold),'block':block,
+                'error':None if score is not None else (result.stderr[-200:] if result.returncode else 'no_score')}
+    except Exception as e:
+        return {'score':None,'threshold':float(threshold),'block':block,
+                'error':type(e).__name__+': '+str(e)[:160]}
 
 
 def normalize_label(value,rules):
@@ -86,7 +127,7 @@ def mechanical(c,limit=None):
     holdout=set()
     if c['mechanical']['holdout_sha256_file']:
         holdout={line.strip() for line in Path(c['mechanical']['holdout_sha256_file']).read_text().splitlines() if line.strip()}
-    handles={};envs={};counts=Counter()
+    handles={};envs={};counts=Counter();reasons=Counter()
     try:
         for s in c['sources']:
             lmdb_path=under(c['raw_root'],s['lmdb'])
@@ -99,7 +140,11 @@ def mechanical(c,limit=None):
                 if limit is not None and index>=limit:break
                 out=envelope(s,bucket,index,row);out['issues']=[];out['state']='candidate';pixel=None;label=None
                 try:
-                    label,issues=normalize_label(row.get('label'),c['mechanical']);out['issues'].extend(issues)
+                    label,issues=normalize_label(row.get('label'),c['mechanical'])
+                    repetition=datatrove_repetition(label,c['mechanical'])
+                    out['text_repetition']=repetition
+                    if repetition['flagged']:issues.append('possible_repetition')
+                    out['issues'].extend(issues)
                     out['label']=label
                     if issues:
                         out['state']='rejected' if any(i in issues for i in ('empty_label','no_han')) else 'review'
@@ -128,9 +173,20 @@ def mechanical(c,limit=None):
                             db.execute("UPDATE rows SET state='review' WHERE pixel=? AND state IN ('candidate','duplicate')",(pixel,))
                             out['state']='review';out['issues'].append('same_pixels_conflicting_labels')
                         elif any(p[1]=='candidate' for p in previous):out['state']='duplicate';out['issues'].append('same_pixels_same_label')
+                    if out['state']!='rejected':
+                        blur=ffmpeg_blur(image_path,info['width'],info['height'],c['mechanical'])
+                        if blur is not None:
+                            out['blur']=blur
+                            if blur.get('score') is None:
+                                out['issues'].append('clarity_probe_failed')
+                                if out['state'] in ('candidate','duplicate'):out['state']='review'
+                            elif blur['score']>blur['threshold']:
+                                out['issues'].append('blur_review')
+                                if out['state'] in ('candidate','duplicate'):out['state']='review'
                 except Exception as e:
                     # Structural issues remain visible; never randomly substitute another sample.
                     out['state']='review';out['issues'].append(str(e)[:160])
+                for issue in out['issues']:reasons[issue]+=1
                 db.execute('INSERT INTO rows VALUES(?,?,?,?,?)',(out['id'],pixel,label,out['state'],json.dumps(out,ensure_ascii=False)))
                 if index%10000==0:db.commit();print('[ocr-qa] MECHANICAL '+json.dumps({'subset':s['subset'],'rows':index+1}),flush=True)
         db.commit()
@@ -148,7 +204,7 @@ def mechanical(c,limit=None):
         db.close()
         for txn in handles.values():txn.abort()
         for env in envs.values():env.close()
-    stats={'counts':dict(counts),'media_operation':'byte-identical LMDB image extraction; no resize/crop/transcode',
+    stats={'counts':dict(counts),'reasons':dict(reasons),'media_operation':'byte-identical LMDB image extraction; no resize/crop/transcode',
            'holdout_protection':'explicit image hashes only' if holdout else 'not_configured',
            'sampling':'per-label-file prefix' if limit else 'full'}
     write_new(stage.path/'stats.json',encode(stats));return stage.commit(stats)
