@@ -1,6 +1,17 @@
 # Chinese OCR QA Pipeline：其他Agent完整接收文档
 
-维护日期：2026-10-27。仓库：**[Tiachi/chinese-ocr-qa](https://github.com/Tiachi/chinese-ocr-qa)**，公开，稳定分支main。本文是独立项目的首要接收入口，不能用旧聊天摘要替代当前代码、配置和服务器回执。
+维护日期：2026-10-27（2026-10-29 有重大进展，见下方最新状态）。仓库：**[Tiachi/chinese-ocr-qa](https://github.com/Tiachi/chinese-ocr-qa)**，公开，稳定分支main。本文是独立项目的首要接收入口，不能用旧聊天摘要替代当前代码、配置和服务器回执。
+
+## 0. 2026-10-29 最新状态（优先阅读）
+
+- 下载已完成：57/57 文件、253,686,654,321 bytes，全部 SHA 校验通过；位置 `/mnt/sfs/ltj/data/UniRec40M`。
+- v4 已完成：4 来源 200K draft-only QA（HWDB/K-12/LSVT/TAL），路径 `/mnt/sfs/ltj/data/UniRec40M_QA_200K_v4_20261029_110039`；140K OE / 60K MCQ，A/B/C/D 各 15K，98 个提问模板；100 条抽检 100/100，全量扫描 0 失败。
+- v5 全量清洗已完成：剩余五源机械清洗 + 九源图片 blur 审核；候选 1,118,514，blur 后可用 1,028,052，可用 MCQ 容量 220,528，理论最大精确 70/30 约 735,080；监控页 `/mnt/sfs/ltj/data/monitor_v5/`，容器端口 8766。
+- 用户选择 D：已构建 `/mnt/sfs/ltj/data/UniRec40M_QA_FULL_D_20261029_160700`，1,028,052 QA（807,524 OE / 220,528 MCQ，约 78.55/21.45，不是 70/30），162 个模板；全量扫描发现 6,819 条 MCQ 选项解析歧义，质量审查标 review。
+- 新清洗规则：datatrove 8-gram/128 tokens/0.6（v4 候选 0 命中）；image-video-cleaner FFmpeg blurdetect，自适应 block，阈值 10 → review，probe 失败 → review。
+- 8018 已由本项目 Qwen3.8-27B 服务接管（媒体清洗 vLLM 已退出）；1,000 条 pilot 745 accepted / 248 review，22.9 条/秒；全量质量审查已启动，预计约 12.5 小时。D 仍为 `DRAFT_ONLY_NOT_MODEL_REVIEWED`。
+- 代码在 `feature/v4-clean-prompts` 分支；v4 代码提交 `11bbdd328c9fe752ea86a493ab751abbb598a543`，基于 main `e85399ed`；38/38 合成测试通过。
+- 详细方案/状态见 [V5_FULL_CLEANING_2026-10-29.md](V5_FULL_CLEANING_2026-10-29.md)。本文第 2 节以下仍是 2026-10-27 的历史交接，部分状态已被本节替代（尤其“下载未开始/最终数据集未生成”）。
 
 ## 1. 用一句话理解目标
 

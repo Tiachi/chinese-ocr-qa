@@ -21,8 +21,8 @@ PROJECT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(PROJECT/'scripts'))
 from common import Stage,config,digest,encode,records,safe_rel,under,ipv4_connect,IPv4HTTPSConnection,HostTraceRedirect
 from download import download_one,file_url,verify,range_bytes,network_error
-from mechanical import bucket_rows,mechanical,normalize_label
-from qa import api_check,build_drafts,distractors,draft,judge_one,parse_verdict,score
+from mechanical import bucket_rows,datatrove_repetition,mechanical,normalize_label
+from qa import api_check,build_drafts,choose_question,distractors,draft,judge_one,parse_verdict,score
 from delivery import allocate,deliver,final_row,register
 from service import service_command
 
@@ -55,6 +55,20 @@ class CoreTests(unittest.TestCase):
         c=config(PROJECT/'config/pipeline.json');self.assertEqual(normalize_label(['中文'],c['mechanical']),(None,['non_string_label']))
     def test_ngram_review(self):
         c=config(PROJECT/'config/pipeline.json');self.assertIn('ngram_loop_review',normalize_label('中文文字'*7,c['mechanical'])[1])
+    def test_datatrove_repetition_rule(self):
+        c=config(PROJECT/'config/pipeline.json')
+        self.assertFalse(datatrove_repetition('中文文字'*7,c['mechanical'])['flagged'])
+        repeated='中文'*100
+        result=datatrove_repetition(repeated,c['mechanical'])
+        self.assertGreaterEqual(result['tokens'],128);self.assertTrue(result['flagged'])
+    def test_question_templates_are_diverse_and_grounded(self):
+        c=config(PROJECT/'config/pipeline.json')
+        rows=[{'image_sha256':str(i),'id':str(i),'kind':'handwriting_line','label':'中文文字'} for i in range(40)]
+        questions={choose_question('oe','handwriting',r,c['seed'])[0] for r in rows}
+        self.assertGreater(len(questions),5)
+        out=draft(rows[0],c)
+        self.assertEqual(out['answer'],'中文文字')
+        self.assertIn(out['question'],questions)
     def test_paths(self):
         for value in ['/etc/passwd','../x','a/../b','a\\b','C:/x','a//b','a/./b']:
             with self.assertRaises(ValueError):safe_rel(value)
